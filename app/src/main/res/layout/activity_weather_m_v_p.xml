@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="@drawable/shape"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="42dp">
+        <Button
+            android:layout_width="36dp"
+            android:id="@+id/addCity"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ic_plus_white_36dp"
+            android:layout_height="36dp"/>
+
+        <TextView
+            android:text="loading"
+            android:id="@+id/locationName"
+            android:layout_centerVertical="true"
+            android:textSize="22sp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </RelativeLayout>
+
+    <TextView
+        android:textSize="42sp"
+        android:id="@+id/temp"
+        android:layout_gravity="top|center"
+        android:layout_width="wrap_content"
+        android:text="39°c"
+        android:layout_marginTop="102dp"
+        android:layout_height="wrap_content"/>
+
+    <com.mk.weather.CustomView.MyImageView
+        android:layout_marginTop="8dp"
+        android:id="@+id/icon"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+<!--    <RelativeLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_marginTop="62dp"-->
+<!--        android:layout_height="112dp">-->
+<!--        <TextView-->
+<!--            android:layout_marginLeft="12dp"-->
+<!--            android:text="Real Feel"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:text="39°c"-->
+<!--            android:id="@+id/realFeel"-->
+<!--            android:layout_marginTop="22dp"-->
+<!--            android:layout_marginLeft="12dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:text="sunrise"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_marginTop="22dp"-->
+<!--            android:id="@+id/sunrise"-->
+<!--            android:text="5:19"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginRight="12dp"-->
+<!--            android:text="sinset"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginRight="12dp"-->
+<!--            android:id="@+id/sunset"-->
+<!--            android:text="09:11"-->
+<!--            android:layout_marginTop="22dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginLeft="12dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:text="Wind"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/wind"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginLeft="12dp"-->
+<!--            android:text="2.1K"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:text="pressure"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/pressure"-->
+<!--            android:text="1013"-->
+<!--            android:layout_centerHorizontal="true"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+<!--        <TextView-->
+<!--            android:text="humidity"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:textSize="18sp"-->
+<!--            android:layout_marginRight="12dp"-->
+<!--            android:layout_marginBottom="20dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/humidity"-->
+<!--            android:text="20"-->
+<!--            android:layout_alignParentBottom="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:layout_marginRight="12dp"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"/>-->
+
+
+<!--    </RelativeLayout>-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_marginTop="102dp"
+        android:layout_width="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:orientation="horizontal"
+        android:layout_height="92dp"/>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:orientation="vertical"
+        android:layout_marginTop="22dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+</LinearLayout>

@@ -1,0 +1,29 @@
+<resources>
+    <attr name="text" format="string"/>
+    <attr name="textSize" format="dimension"/>
+    <attr name="textColor" format="color"/>
+    <attr name="textFont">
+        <enum name="regular" value="1"/>
+        <enum name="medium" value="2"/>
+        <enum name="bold" value="3"/>
+        <enum name="light" value="4"/>
+        <enum name="semiBold" value="5"/>
+        <enum name="mediumTest" value="6"/>
+    </attr>
+
+    <declare-styleable name="MyTextView">
+        <attr name="textSize"/>
+        <attr name="textColor"/>
+        <attr name="textFont"/>
+        <attr name="text"/>
+
+    </declare-styleable>
+
+    <declare-styleable name="MyEditText">
+        <attr name="hint" format="string"/>
+        <attr name="textColor"/>
+        <attr name="textSize"/>
+        <attr name="textFont"/>
+
+    </declare-styleable>
+</resources>

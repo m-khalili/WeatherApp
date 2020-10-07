@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Search.MVPSearchActivity">
+
+
+    <EditText
+        android:id="@+id/searchCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="62dp">
+
+        <com.mk.weather.CustomView.MyTextView
+            android:id="@+id/cityName"
+            app:textFont="semiBold"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <com.mk.weather.CustomView.MyTextView
+            android:layout_width="wrap_content"
+            android:id="@+id/cityTemp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            app:textFont="semiBold"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/location"
+        android:text="location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>
