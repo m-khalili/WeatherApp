@@ -76,5 +76,9 @@ public class MyEditText extends RelativeLayout {
 
    }
 
+   public void setListener(TextWatcher value){
+        txt.addTextChangedListener(value);
+   }
+
 
 }

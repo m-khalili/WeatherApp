@@ -94,28 +94,6 @@ public class PublicMethods {
 
     }
 
-    public static int description(String description){
-
-        if (nightOrDay().equals(Constants.day) && description.equals(Constants.fewClouds)){
-            return R.drawable.ic_clear_day;
-        }else
-            return R.drawable.icon_gray_bg_sunny_night;
-//        if (nightOrDay().equals("day") &&description.equals(Constants.fewClouds)){
-//            return R.drawable.daily_forecast_cloudy;
-//        }
-//        return 0;
-
-    }
-//    public static int getIcon(int code) {
-//
-//        if (nightOrDay().equals(Constants.day) && code == 800) {
-//            return R.drawable.icon_gray_bg_sunny_night;
-//        }
-//        if (code == 801 || code == 802){
-//            return R.drawable.icon_gray_bg_sunny_night;
-//        }
-//        return 0;
-//    }
 
 
 
@@ -125,57 +103,52 @@ public class PublicMethods {
         double n = f + 0.5f;
         return (n - c) % 2 == 0 ? (int) f : c;
     }
-//    public static int getDay(String date){
-//        Calendar c = Calendar.getInstance();
-//        c.setTime(date);
-//        int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
-//        return dayOfWeek;
+
+
+//    public static boolean checkNetWorkConnection() {
+//
+//        ConnectivityManager cm =
+//                (ConnectivityManager) BaseApplication.bassApp.getSystemService(Context.CONNECTIVITY_SERVICE);
+//
+//        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+//        boolean isConnected = activeNetwork != null &&
+//                activeNetwork.isConnectedOrConnecting();
+//        return isConnected;
+//
 //    }
-
-    public static boolean checkNetWorkConnection() {
-
-        ConnectivityManager cm =
-                (ConnectivityManager) BaseApplication.bassApp.getSystemService(Context.CONNECTIVITY_SERVICE);
-
-        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-        boolean isConnected = activeNetwork != null &&
-                activeNetwork.isConnectedOrConnecting();
-        return isConnected;
-
-    }
-
-    public static void checkGpsStatus() {
-        boolean gpsStatus ;
-      LocationManager  locationManager = (LocationManager) BaseApplication.bassApp.getSystemService(Context.LOCATION_SERVICE);
-        assert locationManager != null;
-        gpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        if (gpsStatus == true) {
-            PublicMethods.toast("is on");
-        } else {
-            PublicMethods.toast("GPS Is Disabled");
-        }
-    }
-    public static boolean isLocationEnabled(Context context) {
-        int locationMode = 0;
-        String locationProviders;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
-            try {
-                locationMode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE);
-
-            } catch (Settings.SettingNotFoundException e) {
-                e.printStackTrace();
-                return false;
-            }
-
-            return locationMode != Settings.Secure.LOCATION_MODE_OFF;
-
-        }else{
-            locationProviders = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
-            return !TextUtils.isEmpty(locationProviders);
-        }
+//
+//    public static void checkGpsStatus() {
+//        boolean gpsStatus ;
+//      LocationManager  locationManager = (LocationManager) BaseApplication.bassApp.getSystemService(Context.LOCATION_SERVICE);
+//        assert locationManager != null;
+//        gpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
+//        if (gpsStatus == true) {
+//            PublicMethods.toast("is on");
+//        } else {
+//            PublicMethods.toast("GPS Is Disabled");
+//        }
+//    }
+//    public static boolean isLocationEnabled(Context context) {
+//        int locationMode = 0;
+//        String locationProviders;
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+//            try {
+//                locationMode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE);
+//
+//            } catch (Settings.SettingNotFoundException e) {
+//                e.printStackTrace();
+//                return false;
+//            }
+//
+//            return locationMode != Settings.Secure.LOCATION_MODE_OFF;
+//
+//        }else{
+//            locationProviders = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
+//            return !TextUtils.isEmpty(locationProviders);
+//        }
 
 
-    }
+//    }
     public static boolean checkSharePreferencesIsExist(){
         File f = new File("/data/data/com.mk.weather/shared_prefs/com.mk.weather_preferences.xml");
         return f.exists();
@@ -190,11 +163,8 @@ public class PublicMethods {
         }else
           return "day";
     }
-    public static void showFragment(Fragment fragment, FragmentManager fragmentManager) {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
+    public static String checkTime(String time){
 
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-
-        transaction.add(android.R.id.content, fragment).addToBackStack(null).commit();
+        return "";
     }
 }

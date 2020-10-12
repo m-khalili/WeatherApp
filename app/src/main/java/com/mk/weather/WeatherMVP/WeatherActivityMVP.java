@@ -2,16 +2,16 @@ package com.mk.weather.WeatherMVP;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.util.Log;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
@@ -35,9 +35,7 @@ import com.mk.weather.WeatherMVP.dailyModel.DailyDatum;
 
 import java.util.List;
 
-import io.nlopez.smartlocation.SmartLocation;
-
-public class WeatherActivityMVP extends BaseActivity implements WeatherContractMVP.View, SwipeRefreshLayout.OnRefreshListener {
+public class WeatherActivityMVP extends BaseActivity implements WeatherContractMVP.View, SwipeRefreshLayout.OnRefreshListener,PopupMenu.OnMenuItemClickListener {
 
     String TAG = "monitor_";
     MyTextView locationName,temp,description,sunrise,sunset,realFeel,windSpeed;
@@ -49,74 +47,35 @@ public class WeatherActivityMVP extends BaseActivity implements WeatherContractM
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test2);
+        if (PublicMethods.nightOrDay()== Constants.day){
+            setContentView(R.layout.activity_weather_day);
+        }else
+            setContentView(R.layout.activity_weather_nigh);
+
         bind();
-        permission();
         presenter.attachView(this);
-        presenter.checkNetWorkConnection();
         refresh.setOnRefreshListener(this);
+        presenter.checkNetWorkConnection();
         Log.d(TAG, "onCreateView: ");
-
-
     }
     @Override
     public void networkIsEnable() {
-        presenter.checkGpsStatus();
+        getDataFromSavedLocation();
         Log.d(TAG, "networkIsEnable: ");
     }
 
     @Override
     public void networkIsDisabled() {
-        PublicMethods.toastT("no Net " ,1);
+        PublicMethods.toastT("Please Check Your Connection " ,1);
     }
-
-    @Override
-    public void gpsIsEnable() {
-        getLocation();
-        Log.d(TAG, "gpsIsEnable: ");
-    }
-
-    @Override
-    public void gpsIsDisabled() {
-        if (PublicMethods.checkSharePreferencesIsExist()){
-            getDataFromSavedLocation();
-        }else
-            turnOnGPS();
-    }
-
-    private void turnOnGPS() {
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.turn_on_gps)
-                .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        PublicMethods.toast("cancel");
-                    }
-                })
-                .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        dialogInterface.dismiss();
-                        startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
-                        getLocation();
-                    }
-                });
-
-        builder.create().show();
-    }
-
 
 
     public void getDataFromSavedLocation() {
-        String latitude = PublicMethods.getShared(BaseApplication.bassApp,"lat" , "");
-        String longitude = PublicMethods.getShared(BaseApplication.bassApp,"lon" , "");
-        if (latitude != null && longitude != null) {
-            double lat = (Double.parseDouble(latitude));
-            double lon = (Double.parseDouble(longitude));
-            presenter.onGetCurrentData(lat,lon);
-            presenter.onGetHourly(lat,lon);
-            presenter.onGetDaily(lat,lon);
+        String city = PublicMethods.getShared(BaseApplication.bassApp,"city" , "");
+        if (city != null) {
+            presenter.onGetCurrentData(city);
+            presenter.onGetHourly(city);
+            presenter.onGetDaily(city);
 
         }
     }
@@ -133,14 +92,14 @@ public class WeatherActivityMVP extends BaseActivity implements WeatherContractM
                 sunrise.setTxt(String.valueOf(PublicMethods.getTimezone(currentData.get(i).getSunrise())));
                 sunset.setTxt(String.valueOf(PublicMethods.getTimezone(currentData.get(i).getSunset())));
                 realFeel.setTxt(PublicMethods.roundFloat(currentData.get(i).getAppTemp())+Constants.c);
-                windSpeed.setTxt(currentData.get(i).getWindSpd());
+                windSpeed.setTxt(PublicMethods.roundFloat(currentData.get(i).getWindSpd()));
             }
         }
     }
 
     @Override
     public void onFailed(Throwable t) {
-        PublicMethods.toastT(t.toString() , 1);
+        Log.d(TAG, "onFailed: " + t);
     }
 
     @Override
@@ -153,21 +112,6 @@ public class WeatherActivityMVP extends BaseActivity implements WeatherContractM
     public void onResponseDailyData(List<DailyDatum> dailyData) {
         RecyclerAdapterDailyForecast adapter = new RecyclerAdapterDailyForecast(dailyData , BaseApplication.bassApp);
         recyclerDaily.setAdapter(adapter);
-//        Log.d(TAG, "onResponseDailyData: view ");
-    }
-    private void getLocation(){
-
-        SmartLocation.with(BaseApplication.bassApp).location().start(L -> {
-            double lat = L.getLatitude();
-            double lon = L.getLongitude();
-            PublicMethods.setShared(BaseApplication.bassApp , "lat" , String.valueOf(lat));
-            PublicMethods.setShared(BaseApplication.bassApp , "lon" , String.valueOf(lon));
-            presenter.onGetCurrentData(lat,lon);
-            presenter.onGetHourly(lat,lon);
-            presenter.onGetDaily(lat,lon);
-            Log.d(TAG, "getLocation: ");
-
-        });
     }
 
     void bind(){
@@ -178,7 +122,6 @@ public class WeatherActivityMVP extends BaseActivity implements WeatherContractM
         sunset = findViewById(R.id.sunset);
         realFeel = findViewById(R.id.realFeel);
         windSpeed = findViewById(R.id.windSpeed);
-//        icon = v.findViewById(R.id.icon);
         recycler1 =findViewById(R.id.recycler1);
         recyclerDaily = findViewById(R.id.recyclerDaily);
         refresh = findViewById(R.id.refresh);
@@ -216,10 +159,28 @@ public class WeatherActivityMVP extends BaseActivity implements WeatherContractM
         if (requestCode == 1000){
             if (resultCode == Activity.RESULT_OK){
                 String  result = data.getStringExtra(Constants.cityName);
-//                presenter.onGetCurrentData(result);
-                PublicMethods.toastT(result, 1);
+                PublicMethods.setShared(BaseApplication.bassApp , "city" ,result);
+                presenter.onGetCurrentData(result);
+                presenter.onGetHourly(result);
+                presenter.onGetDaily(result);
 
             }
         }
+    }
+    public void showPopup(View v) {
+        PopupMenu popup = new PopupMenu(this, v);
+        MenuInflater inflater = popup.getMenuInflater();
+        inflater.inflate(R.menu.menu_item, popup.getMenu());
+        popup.show();
+        popup.setOnMenuItemClickListener(this);
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem item) {
+        if (item.getItemId() == R.id.about) {
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/mrmkh/WeatherApp"));
+            startActivity(intent);
+        }
+        return false;
     }
 }

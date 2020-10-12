@@ -71,6 +71,9 @@ public class MyTextView extends RelativeLayout {
     public void setTxt(Double value){
         txt.setText(value.toString());
     }
+    public void setTxt(Integer value){
+        txt.setText(value.toString());
+    }
 
 
     public String getText(){

@@ -21,19 +21,12 @@ import static androidx.fragment.app.FragmentStatePagerAdapter.BEHAVIOR_RESUME_ON
 
 public class MainActivity extends BaseActivity {
 
-ViewPager main_pager;
-SmartTabLayout indicator;
 String TAG = "ck";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        main_pager = findViewById(R.id.main_pager);
-        indicator = findViewById(R.id.indicator);
 
-        PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(),BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        main_pager.setAdapter(adapter);
-        indicator.setViewPager(main_pager);
     }
 
 }

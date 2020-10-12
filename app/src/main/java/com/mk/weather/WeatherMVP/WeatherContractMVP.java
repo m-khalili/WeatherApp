@@ -11,8 +11,7 @@ public interface WeatherContractMVP {
     interface View {
         void networkIsEnable();
         void networkIsDisabled();
-        void gpsIsEnable();
-        void gpsIsDisabled();
+
 //        void getDataFromSavedLocation();
         void onReceivedCurrentData(List<Datum> currentData);
         void onFailed(Throwable t);
@@ -24,24 +23,23 @@ public interface WeatherContractMVP {
         void checkNetWorkConnection();
         void networkIsEnable();
         void networkIsDisabled();
-        void checkGpsStatus();
-        void gpsIsEnable();
-        void gpsIsDisabled();
+
+
 //        void getDataFromSavedLocation();
-        void onGetCurrentData(double lat , double lon);
+        void onGetCurrentData(String city);
         void onReceivedCurrentData(List<Datum> currentData);
         void onFailed(Throwable t);
-        void onGetHourly(double lat , double lon);
+        void onGetHourly(String q);
         void onResponseHourlyData(List<ListModel> hourlyData);
-        void onGetDaily(double lat , double lon);
+        void onGetDaily(String city);
         void onResponseDailyData(List<DailyDatum> dailyData);
     }
     interface Model{
         void checkNetWorkConnection();
-        void checkGpsStatus();
+
         void attachPresenter(Presenter presenter);
-        void onGetCurrentData(double lat , double lon);
-        void GetHourly(double lat , double lon);
-        void onGetDaily(double lat , double lon);
+        void onGetCurrentData(String city);
+        void GetHourly(String q);
+        void onGetDaily(String city);
     }
 }

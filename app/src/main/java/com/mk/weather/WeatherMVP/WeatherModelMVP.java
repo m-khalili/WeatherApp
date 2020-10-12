@@ -1,16 +1,13 @@
 package com.mk.weather.WeatherMVP;
 
 import android.content.Context;
-import android.location.LocationManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.mk.weather.RXRetro;
+import com.mk.weather.RetroGenerator;
 import com.mk.weather.Utils.BaseApplication;
 import com.mk.weather.Utils.Constants;
-import com.mk.weather.Utils.PublicMethods;
 import com.mk.weather.WeatherMVP.CurrentModel.CurrentModel;
 import com.mk.weather.WeatherMVP.CurrentModel.Datum;
 import com.mk.weather.WeatherMVP.HourlyModel.HourlyModel;
@@ -25,9 +22,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class WeatherModelMVP implements WeatherContractMVP.Model {
-    Context context;
     WeatherContractMVP.Presenter presenter;
-    LocationManager manager = (LocationManager) BaseApplication.bassApp.getSystemService(Context.LOCATION_SERVICE);
     WeatherServiceInterface serviceInterface = RetrofitGenerator.createService(WeatherServiceInterface.class);
     String TAG = "monitor_";
 
@@ -54,30 +49,12 @@ public class WeatherModelMVP implements WeatherContractMVP.Model {
 
 
     @Override
-    public void checkGpsStatus() {
-       if (PublicMethods.isLocationEnabled(BaseApplication.bassApp)){
-            presenter.gpsIsEnable();
-       }else
-         presenter.gpsIsDisabled();
-    }
+    public void onGetCurrentData(String city) {
 
-
-//        if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ){
-//
-//        presenter.gpsIsDisabled();
-//        Log.d(TAG, "checkGpsStatus: model gps disable");
-//    }else
-//    checkSharePreferencesIsExist();
-//        Log.d(TAG, "checkGpsStatus: model gps is enable");
-
-
-    @Override
-    public void onGetCurrentData(double lat , double lon) {
-
-        serviceInterface.getData(lat,lon, Constants.key).enqueue(new Callback<CurrentModel>() {
+        serviceInterface.getData(city, Constants.key).enqueue(new Callback<CurrentModel>() {
             @Override
             public void onResponse(Call<CurrentModel> call, Response<CurrentModel> response) {
-                if (response.body()!= null && response.isSuccessful()){
+                if (response.body() != null && response.isSuccessful()) {
                     List<Datum> currentData = response.body().getData();
                     presenter.onReceivedCurrentData(currentData);
                     Log.d(TAG, "onResponse: model");
@@ -93,12 +70,12 @@ public class WeatherModelMVP implements WeatherContractMVP.Model {
     }
 
     @Override
-    public void GetHourly(double lat, double lon) {
-        WeatherServiceInterface serviceInterface1 = RXRetro.createService(WeatherServiceInterface.class);
-        serviceInterface1.getHourly(lat,lon,Constants.hourlyApiKey).enqueue(new Callback<HourlyModel>() {
+    public void GetHourly(String q) {
+        WeatherServiceInterface serviceInterface1 = RetroGenerator.createService(WeatherServiceInterface.class);
+        serviceInterface1.getHourly(q, Constants.hourlyApiKey).enqueue(new Callback<HourlyModel>() {
             @Override
             public void onResponse(Call<HourlyModel> call, Response<HourlyModel> response) {
-                if (response.body()!= null && response.isSuccessful()){
+                if (response.body() != null && response.isSuccessful()) {
                     List<ListModel> hourlyData = response.body().getList();
                     presenter.onResponseHourlyData(hourlyData);
 
@@ -113,11 +90,11 @@ public class WeatherModelMVP implements WeatherContractMVP.Model {
     }
 
     @Override
-    public void onGetDaily(double lat, double lon) {
-        serviceInterface.getDaily(lat,lon,Constants.key).enqueue(new Callback<DailyModel>() {
+    public void onGetDaily(String city) {
+        serviceInterface.getDaily(city, Constants.key).enqueue(new Callback<DailyModel>() {
             @Override
             public void onResponse(Call<DailyModel> call, Response<DailyModel> response) {
-                if (response.body()!= null && response.isSuccessful()){
+                if (response.body() != null && response.isSuccessful()) {
                     List<DailyDatum> dailyData = response.body().getData();
                     presenter.onResponseDailyData(dailyData);
                     Log.d(TAG, "onResponse: model");
@@ -128,7 +105,6 @@ public class WeatherModelMVP implements WeatherContractMVP.Model {
             public void onFailure(Call<DailyModel> call, Throwable t) {
                 presenter.onFailed(t);
                 Log.d(TAG, "onFailure: model");
-                Toast.makeText(BaseApplication.bassApp, t.toString(), Toast.LENGTH_LONG).show();
 
             }
         });

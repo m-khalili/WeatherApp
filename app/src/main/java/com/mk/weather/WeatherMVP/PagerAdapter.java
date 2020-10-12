@@ -14,12 +14,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(int position) {
-        if (position==0){
-            return WeatherFragmentMVP.getInstance();
-        }
-        if (position==1){
-            return MVPFragmentA.getInstance();
-        }
+
         return null;
     }
 

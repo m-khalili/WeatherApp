@@ -40,23 +40,23 @@ public class WeatherPresenterMVP implements WeatherContractMVP.Presenter {
 
 
 
-    @Override
-    public void checkGpsStatus() {
-        model.checkGpsStatus();
-        Log.d(TAG, "checkGpsStatus: presenter");
-    }
-
-    @Override
-    public void gpsIsEnable() {
-        view.gpsIsEnable();
-        Log.d(TAG, "gpsIsEnable: presenter");
-    }
-
-    @Override
-    public void gpsIsDisabled() {
-        view.gpsIsDisabled();
-        Log.d(TAG, "gpsIsDisabled: presenter");
-    }
+//    @Override
+//    public void checkGpsStatus() {
+//        model.checkGpsStatus();
+//        Log.d(TAG, "checkGpsStatus: presenter");
+//    }
+//
+//    @Override
+//    public void gpsIsEnable() {
+//        view.gpsIsEnable();
+//        Log.d(TAG, "gpsIsEnable: presenter");
+//    }
+//
+//    @Override
+//    public void gpsIsDisabled() {
+//        view.gpsIsDisabled();
+//        Log.d(TAG, "gpsIsDisabled: presenter");
+//    }
 
 //    @Override
 //    public void getDataFromSavedLocation() {
@@ -70,8 +70,8 @@ public class WeatherPresenterMVP implements WeatherContractMVP.Presenter {
     }
 
     @Override
-    public void onGetCurrentData(double lat, double lon) {
-        model.onGetCurrentData(lat, lon);
+    public void onGetCurrentData(String city) {
+        model.onGetCurrentData(city);
     }
 
 
@@ -82,8 +82,8 @@ public class WeatherPresenterMVP implements WeatherContractMVP.Presenter {
 
     }
     @Override
-    public void onGetHourly(double lat, double lon) {
-        model.GetHourly(lat, lon);
+    public void onGetHourly(String q) {
+        model.GetHourly(q);
     }
 
     @Override
@@ -93,8 +93,8 @@ public class WeatherPresenterMVP implements WeatherContractMVP.Presenter {
     }
 
     @Override
-    public void onGetDaily(double lat, double lon) {
-        model.onGetDaily(lat, lon);
+    public void onGetDaily(String city) {
+        model.onGetDaily(city);
         Log.d(TAG, "onGetDaily: presenter");
     }
 

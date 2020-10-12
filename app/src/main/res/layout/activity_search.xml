@@ -5,14 +5,20 @@
     android:orientation="vertical"
     android:padding="12dp"
     android:layout_width="match_parent"
+    android:background="#EFEFEF"
     android:layout_height="match_parent"
     tools:context=".Search.MVPSearchActivity">
 
 
     <EditText
         android:id="@+id/searchCity"
+        android:layout_marginTop="21dp"
+        android:hint="@string/enter_city_name"
+        android:textColorHint="@color/white"
+        android:background="@drawable/my_shape"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="38dp"/>
+
 
 
     <RelativeLayout
@@ -24,6 +30,7 @@
             android:id="@+id/cityName"
             app:textFont="semiBold"
             android:layout_alignParentLeft="true"
+            app:textColor="#000"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
@@ -31,6 +38,7 @@
             android:layout_width="wrap_content"
             android:id="@+id/cityTemp"
             android:layout_alignParentRight="true"
+            app:textColor="#000"
             android:layout_centerVertical="true"
             app:textFont="semiBold"
             android:layout_height="wrap_content"/>
@@ -38,11 +46,7 @@
 
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/location"
-        android:text="location"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+
 
 
 </LinearLayout>

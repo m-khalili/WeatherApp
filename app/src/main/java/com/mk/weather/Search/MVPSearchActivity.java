@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -73,6 +74,8 @@ PublicMethods.toast(t.toString());
     }
     private void bind() {
         searchCity = findViewById(R.id.searchCity);
+        Typeface medium = Typeface.createFromAsset(this.getAssets(),"JosefinSans-Medium.ttf");
+        searchCity.setTypeface(medium);
 //        text1 = findViewById(R.id.text1);
         cityName = findViewById(R.id.cityName);
         cityTemp = findViewById(R.id.cityTemp);

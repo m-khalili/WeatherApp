@@ -8,34 +8,5 @@
     tools:context=".MainActivity">
 
 
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/main_pager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-
-
-    <com.ogaclejapan.smarttablayout.SmartTabLayout
-        android:id="@+id/indicator"
-        app:stl_indicatorThickness="10dp"
-        app:stl_indicatorCornerRadius="10dp"
-        app:stl_underlineThickness="0dp"
-        app:stl_overlineThickness="0dp"
-        app:stl_dividerThickness="0dp"
-        app:stl_indicatorColor="#959293"
-        app:stl_indicatorAlwaysInCenter="true"
-        app:stl_indicatorWidth="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        app:stl_indicatorGravity="center"
-        />
-</RelativeLayout>
-
 
 </LinearLayout>

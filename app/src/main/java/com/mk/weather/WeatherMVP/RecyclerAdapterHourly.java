@@ -43,11 +43,13 @@ public class RecyclerAdapterHourly extends RecyclerView.Adapter<RecyclerAdapterH
         if (hourlyData.get(position) != null){
             holder.time.setTxt(PublicMethods.getTime(hourlyData.get(position).getDt()));
             double temp = PublicMethods.ktoC(hourlyData.get(position).getMain().getTemp());
-            holder.temp.setTxt(String.valueOf(PublicMethods.roundFloat(temp))+Constants.c);
+            holder.temp.setTxt((PublicMethods.roundFloat(temp))+Constants.c);
             List<Weather> weathers = hourlyData.get(position).getWeather();
             for (int i = 0; i< weathers.size(); i++){
                 holder.description.setTxt(weathers.get(i).getDescription());
                 holder.image.loadImgFromDrawable(WeatherIcon.getIcon(weathers.get(i).getId()));
+
+
             }
 
         }
