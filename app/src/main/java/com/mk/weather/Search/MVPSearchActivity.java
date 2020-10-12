@@ -7,14 +7,13 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import com.jakewharton.rxbinding3.widget.RxTextView;
 import com.mk.weather.CustomView.MyTextView;
 import com.mk.weather.R;
-import com.mk.weather.Search.searchModel.Datum;
+import com.mk.weather.ModelEntites.searchModel.Datum;
 import com.mk.weather.Utils.Constants;
 import com.mk.weather.Utils.PublicMethods;
 
@@ -26,7 +25,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 public class MVPSearchActivity extends AppCompatActivity implements MVPSearchContract.View {
     MVPSearchPresenter presenter = new MVPSearchPresenter();
     EditText searchCity;
-//    TextView text1;
     String TAG = "monitor_";
     MyTextView cityName,cityTemp;
     RelativeLayout relative;
@@ -69,14 +67,12 @@ public class MVPSearchActivity extends AppCompatActivity implements MVPSearchCon
 
     @Override
     public void onFailed(Throwable t) {
-//        PublicMethods.toast("City Not Found");
-PublicMethods.toast(t.toString());
+        PublicMethods.toast(getString(R.string.cityNotFound));
     }
     private void bind() {
         searchCity = findViewById(R.id.searchCity);
         Typeface medium = Typeface.createFromAsset(this.getAssets(),"JosefinSans-Medium.ttf");
         searchCity.setTypeface(medium);
-//        text1 = findViewById(R.id.text1);
         cityName = findViewById(R.id.cityName);
         cityTemp = findViewById(R.id.cityTemp);
         relative = findViewById(R.id.relative);

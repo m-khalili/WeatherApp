@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,7 +14,7 @@ import com.mk.weather.R;
 import com.mk.weather.Utils.Constants;
 import com.mk.weather.Utils.PublicMethods;
 import com.mk.weather.Utils.WeatherIcon;
-import com.mk.weather.WeatherMVP.dailyModel.DailyDatum;
+import com.mk.weather.ModelEntites.dailyModel.DailyDatum;
 
 import java.util.List;
 
@@ -36,7 +35,6 @@ public class RecyclerAdapterDailyForecast extends RecyclerView.Adapter<RecyclerA
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapterDailyForecast.Holder holder, int position) {
-//        holder.temp.setText(PublicMethods.roundFloat(dailyData.get(position).getLowTemp()));
         holder.temp.setTxt(PublicMethods.roundFloat(dailyData.get(position).getMaxTemp())+ Constants.degree+"/"+PublicMethods.roundFloat(dailyData.get(position).getMinTemp())+Constants.degree);
         holder.img.loadImgFromDrawable(WeatherIcon.getIcon(dailyData.get(position).getWeather().getCode().intValue()));
         holder.date.setTxt(PublicMethods.getDay(dailyData.get(position).getTs()));

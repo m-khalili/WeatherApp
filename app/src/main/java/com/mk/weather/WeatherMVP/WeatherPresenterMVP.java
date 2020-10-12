@@ -2,9 +2,9 @@ package com.mk.weather.WeatherMVP;
 
 import android.util.Log;
 
-import com.mk.weather.WeatherMVP.CurrentModel.Datum;
-import com.mk.weather.WeatherMVP.HourlyModel.ListModel;
-import com.mk.weather.WeatherMVP.dailyModel.DailyDatum;
+import com.mk.weather.ModelEntites.CurrentModel.Datum;
+import com.mk.weather.ModelEntites.HourlyModel.ListModel;
+import com.mk.weather.ModelEntites.dailyModel.DailyDatum;
 
 import java.util.List;
 
@@ -37,31 +37,6 @@ public class WeatherPresenterMVP implements WeatherContractMVP.Presenter {
         view.networkIsDisabled();
         Log.d(TAG, "networkIsDisabled: presenter");
     }
-
-
-
-//    @Override
-//    public void checkGpsStatus() {
-//        model.checkGpsStatus();
-//        Log.d(TAG, "checkGpsStatus: presenter");
-//    }
-//
-//    @Override
-//    public void gpsIsEnable() {
-//        view.gpsIsEnable();
-//        Log.d(TAG, "gpsIsEnable: presenter");
-//    }
-//
-//    @Override
-//    public void gpsIsDisabled() {
-//        view.gpsIsDisabled();
-//        Log.d(TAG, "gpsIsDisabled: presenter");
-//    }
-
-//    @Override
-//    public void getDataFromSavedLocation() {
-//        view.getDataFromSavedLocation();
-//    }
 
 
     @Override

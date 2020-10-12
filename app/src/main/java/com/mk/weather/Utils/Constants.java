@@ -16,7 +16,6 @@ public class Constants {
     public static String night = "night";
     public static String clearSky=  "Clear Sky";
     public static String fewClouds =  "Few clouds";
-    public static String kmHr =  "Km/Hr";
 
 
 }

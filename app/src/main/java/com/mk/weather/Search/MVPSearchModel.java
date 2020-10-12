@@ -1,9 +1,9 @@
 package com.mk.weather.Search;
 
-import com.mk.weather.Search.searchModel.Datum;
-import com.mk.weather.Search.searchModel.SearchModel;
+import com.mk.weather.ModelEntites.searchModel.Datum;
+import com.mk.weather.ModelEntites.searchModel.SearchModel;
 import com.mk.weather.Utils.Constants;
-import com.mk.weather.WeatherMVP.RetrofitGenerator;
+import com.mk.weather.RetrofitGenerator;
 import com.mk.weather.WeatherMVP.WeatherServiceInterface;
 
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.mk.weather.Search;
 
-import com.mk.weather.Search.searchModel.Datum;
+import com.mk.weather.ModelEntites.searchModel.Datum;
 
 import java.util.List;
 

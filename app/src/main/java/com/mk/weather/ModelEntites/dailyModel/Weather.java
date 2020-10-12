@@ -1,5 +1,5 @@
 
-package com.mk.weather.WeatherMVP.CurrentModel;
+package com.mk.weather.ModelEntites.dailyModel;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -7,17 +7,17 @@ import com.google.gson.annotations.SerializedName;
 public class Weather {
 
     @SerializedName("code")
-    private Integer mCode;
+    private Long mCode;
     @SerializedName("description")
     private String mDescription;
     @SerializedName("icon")
     private String mIcon;
 
-    public Integer getCode() {
+    public Long getCode() {
         return mCode;
     }
 
-    public void setCode(Integer code) {
+    public void setCode(Long code) {
         mCode = code;
     }
 

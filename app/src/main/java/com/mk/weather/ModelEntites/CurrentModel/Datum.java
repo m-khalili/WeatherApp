@@ -1,8 +1,7 @@
 
-package com.mk.weather.WeatherMVP.CurrentModel;
+package com.mk.weather.ModelEntites.CurrentModel;
 
 import com.google.gson.annotations.SerializedName;
-import com.mk.weather.Utils.PublicMethods;
 
 @SuppressWarnings("unused")
 public class Datum {

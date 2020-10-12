@@ -1,5 +1,5 @@
 
-package com.mk.weather.WeatherMVP.HourlyModel;
+package com.mk.weather.ModelEntites.HourlyModel;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -4,4 +4,9 @@
     <string name="cancel">Cancel</string>
     <string name="daily_forecast">Daily Forecast</string>
     <string name="enter_city_name"> Enter city Name</string>
+    <string name="cityNotFound">City Not Found</string>
+    <string name="wind_speed">Wind(km/h)</string>
+    <string name="real_feel">Real feel</string>
+    <string name="sunset">Sunset</string>
+    <string name="sunrise">Sunrise</string>
 </resources>

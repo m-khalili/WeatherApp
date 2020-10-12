@@ -14,8 +14,8 @@ import com.mk.weather.R;
 import com.mk.weather.Utils.Constants;
 import com.mk.weather.Utils.PublicMethods;
 import com.mk.weather.Utils.WeatherIcon;
-import com.mk.weather.WeatherMVP.HourlyModel.ListModel;
-import com.mk.weather.WeatherMVP.HourlyModel.Weather;
+import com.mk.weather.ModelEntites.HourlyModel.ListModel;
+import com.mk.weather.ModelEntites.HourlyModel.Weather;
 
 
 import java.util.List;
@@ -54,12 +54,6 @@ public class RecyclerAdapterHourly extends RecyclerView.Adapter<RecyclerAdapterH
 
         }
 
-//        if (hourlyData.get(position)!= null){
-//            holder.time.setTxt(PublicMethods.getTime(hourlyData.get(position).getTs()));
-//            holder.temp.setTxt(String.valueOf(PublicMethods.roundFloat(hourlyData.get(position).getTemp())) + Constants.c);
-//            holder.image.loadImgFromDrawable(PublicMethods.getIcon(hourlyData.get(position).getWeather().getCode()));
-//            holder.description.setTxt(hourlyData.get(position).getWeather().getDescription());
-//        }
     }
 
     @Override

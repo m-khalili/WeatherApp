@@ -152,14 +152,14 @@
                 </TableRow>
                 <TableRow>
                     <com.mk.weather.CustomView.MyTextView
-                        app:text="Sunrise"
+                        app:text="@string/sunrise"
                         android:id="@+id/sunrise1"
                         android:layout_width="wrap_content"
                         app:textColor="@color/gray"
                         app:textFont="medium"
                         android:layout_height="wrap_content"/>
                     <com.mk.weather.CustomView.MyTextView
-                        app:text="Sunset"
+                        app:text="@string/sunset"
                         android:id="@+id/sunset1"
                         android:layout_width="wrap_content"
                         app:textFont="medium"
@@ -168,7 +168,7 @@
                         android:layout_height="wrap_content"/>
                     <com.mk.weather.CustomView.MyTextView
                         android:id="@+id/realFeel1"
-                        app:text="Real feel"
+                        app:text="@string/real_feel"
                         android:layout_width="wrap_content"
                         app:textFont="medium"
                         app:textColor="@color/gray"
@@ -176,7 +176,7 @@
                         android:layout_height="wrap_content"/>
                     <com.mk.weather.CustomView.MyTextView
                         android:id="@+id/windSpeed1"
-                        app:text="Wind Speed"
+                        app:text="@string/wind_speed"
                         android:layout_width="wrap_content"
                         app:textFont="medium"
                         app:textColor="@color/gray"

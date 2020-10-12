@@ -1,19 +1,18 @@
 package com.mk.weather.WeatherMVP;
-
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
-
 import com.mk.weather.RetroGenerator;
+import com.mk.weather.RetrofitGenerator;
 import com.mk.weather.Utils.BaseApplication;
 import com.mk.weather.Utils.Constants;
-import com.mk.weather.WeatherMVP.CurrentModel.CurrentModel;
-import com.mk.weather.WeatherMVP.CurrentModel.Datum;
-import com.mk.weather.WeatherMVP.HourlyModel.HourlyModel;
-import com.mk.weather.WeatherMVP.HourlyModel.ListModel;
-import com.mk.weather.WeatherMVP.dailyModel.DailyDatum;
-import com.mk.weather.WeatherMVP.dailyModel.DailyModel;
+import com.mk.weather.ModelEntites.CurrentModel.CurrentModel;
+import com.mk.weather.ModelEntites.CurrentModel.Datum;
+import com.mk.weather.ModelEntites.HourlyModel.HourlyModel;
+import com.mk.weather.ModelEntites.HourlyModel.ListModel;
+import com.mk.weather.ModelEntites.dailyModel.DailyDatum;
+import com.mk.weather.ModelEntites.dailyModel.DailyModel;
 
 import java.util.List;
 

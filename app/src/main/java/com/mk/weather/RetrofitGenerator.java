@@ -1,4 +1,4 @@
-package com.mk.weather.WeatherMVP;
+package com.mk.weather;
 
 import java.util.concurrent.TimeUnit;
 

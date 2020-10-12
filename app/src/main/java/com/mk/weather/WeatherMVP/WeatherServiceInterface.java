@@ -1,9 +1,9 @@
 package com.mk.weather.WeatherMVP;
 
-import com.mk.weather.Search.searchModel.SearchModel;
-import com.mk.weather.WeatherMVP.CurrentModel.CurrentModel;
-import com.mk.weather.WeatherMVP.HourlyModel.HourlyModel;
-import com.mk.weather.WeatherMVP.dailyModel.DailyModel;
+import com.mk.weather.ModelEntites.searchModel.SearchModel;
+import com.mk.weather.ModelEntites.CurrentModel.CurrentModel;
+import com.mk.weather.ModelEntites.HourlyModel.HourlyModel;
+import com.mk.weather.ModelEntites.dailyModel.DailyModel;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -35,13 +35,6 @@ public interface WeatherServiceInterface {
             @Query("key") String key
     );
 
-//
-//    @GET("v2.0/forecast/daily?")
-//    Observable<DailyModel> getDailyData(
-//            @Query("lat") double lat,
-//            @Query("lon") double lon,
-//            @Query("key") String key
-//    );
 
     @GET("v2.0/current?")
     Call<CurrentModel> getCityCurrentData(

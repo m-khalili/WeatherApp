@@ -1,5 +1,5 @@
 
-package com.mk.weather.WeatherMVP.dailyModel;
+package com.mk.weather.ModelEntites.dailyModel;
 
 import com.google.gson.annotations.SerializedName;
 

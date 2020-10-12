@@ -1,21 +1,7 @@
 package com.mk.weather.Utils;
-
 import android.content.Context;
-import android.location.LocationManager;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
 import android.widget.Toast;
-
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.preference.PreferenceManager;
-
-import com.mk.weather.R;
-
 import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -74,14 +60,10 @@ public class PublicMethods {
         return k - 273;
     }
 
-//
-//     public static String ktoC(double k) {
-//
-//        return String.valueOf(k - 273);
-//    }
 
-    public static String speedInMsecToKmHr(double meterSec) {
-        return String.valueOf(((meterSec) * 18 / 5));
+
+    public static Double speedInMsecToKmHr(double meterSec) {
+        return ((meterSec) * 18 / 5);
     }
 
     public static void setShared(Context mContext, String key, String value) {
@@ -94,10 +76,6 @@ public class PublicMethods {
 
     }
 
-
-
-
-
     public static int roundFloat(double f) {
         int c = (int) ((f) + 0.5f);
         double n = f + 0.5f;
@@ -105,50 +83,6 @@ public class PublicMethods {
     }
 
 
-//    public static boolean checkNetWorkConnection() {
-//
-//        ConnectivityManager cm =
-//                (ConnectivityManager) BaseApplication.bassApp.getSystemService(Context.CONNECTIVITY_SERVICE);
-//
-//        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-//        boolean isConnected = activeNetwork != null &&
-//                activeNetwork.isConnectedOrConnecting();
-//        return isConnected;
-//
-//    }
-//
-//    public static void checkGpsStatus() {
-//        boolean gpsStatus ;
-//      LocationManager  locationManager = (LocationManager) BaseApplication.bassApp.getSystemService(Context.LOCATION_SERVICE);
-//        assert locationManager != null;
-//        gpsStatus = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-//        if (gpsStatus == true) {
-//            PublicMethods.toast("is on");
-//        } else {
-//            PublicMethods.toast("GPS Is Disabled");
-//        }
-//    }
-//    public static boolean isLocationEnabled(Context context) {
-//        int locationMode = 0;
-//        String locationProviders;
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
-//            try {
-//                locationMode = Settings.Secure.getInt(context.getContentResolver(), Settings.Secure.LOCATION_MODE);
-//
-//            } catch (Settings.SettingNotFoundException e) {
-//                e.printStackTrace();
-//                return false;
-//            }
-//
-//            return locationMode != Settings.Secure.LOCATION_MODE_OFF;
-//
-//        }else{
-//            locationProviders = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.LOCATION_PROVIDERS_ALLOWED);
-//            return !TextUtils.isEmpty(locationProviders);
-//        }
-
-
-//    }
     public static boolean checkSharePreferencesIsExist(){
         File f = new File("/data/data/com.mk.weather/shared_prefs/com.mk.weather_preferences.xml");
         return f.exists();

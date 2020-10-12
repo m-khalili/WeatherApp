@@ -1,5 +1,5 @@
 
-package com.mk.weather.WeatherMVP.CurrentModel;
+package com.mk.weather.ModelEntites.CurrentModel;
 
 import java.util.List;
 import com.google.gson.annotations.SerializedName;

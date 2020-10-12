@@ -1,8 +1,8 @@
 package com.mk.weather.WeatherMVP;
 
-import com.mk.weather.WeatherMVP.CurrentModel.Datum;
-import com.mk.weather.WeatherMVP.HourlyModel.ListModel;
-import com.mk.weather.WeatherMVP.dailyModel.DailyDatum;
+import com.mk.weather.ModelEntites.CurrentModel.Datum;
+import com.mk.weather.ModelEntites.HourlyModel.ListModel;
+import com.mk.weather.ModelEntites.dailyModel.DailyDatum;
 
 import java.util.List;
 
@@ -12,7 +12,6 @@ public interface WeatherContractMVP {
         void networkIsEnable();
         void networkIsDisabled();
 
-//        void getDataFromSavedLocation();
         void onReceivedCurrentData(List<Datum> currentData);
         void onFailed(Throwable t);
         void onResponseHourlyData(List<ListModel> hourlyData);
@@ -25,7 +24,6 @@ public interface WeatherContractMVP {
         void networkIsDisabled();
 
 
-//        void getDataFromSavedLocation();
         void onGetCurrentData(String city);
         void onReceivedCurrentData(List<Datum> currentData);
         void onFailed(Throwable t);

@@ -1,5 +1,5 @@
 
-package com.mk.weather.Search.searchModel;
+package com.mk.weather.ModelEntites.searchModel;
 
 import java.util.List;
 import com.google.gson.annotations.Expose;
