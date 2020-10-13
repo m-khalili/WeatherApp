@@ -12,7 +12,18 @@ A simple android app made using the following:
 * RecyclerView
 
 
+
+
+
+
+
+
+
+
+
+
 #LICENSE
+
 MIT License
 
 Copyright (c) [year] [fullname]
