@@ -36,7 +36,7 @@ public class RecyclerAdapterDailyForecast extends RecyclerView.Adapter<RecyclerA
     @Override
     public void onBindViewHolder(@NonNull RecyclerAdapterDailyForecast.Holder holder, int position) {
         holder.temp.setTxt(PublicMethods.roundFloat(dailyData.get(position).getMaxTemp())+ Constants.degree+"/"+PublicMethods.roundFloat(dailyData.get(position).getMinTemp())+Constants.degree);
-        holder.img.loadImgFromDrawable(WeatherIcon.getIcon(dailyData.get(position).getWeather().getCode().intValue()));
+        holder.img.loadImgFromDrawable(WeatherIcon.getIconDaily(dailyData.get(position).getWeather().getCode().intValue()));
         holder.date.setTxt(PublicMethods.getDay(dailyData.get(position).getTs()));
 
     }
