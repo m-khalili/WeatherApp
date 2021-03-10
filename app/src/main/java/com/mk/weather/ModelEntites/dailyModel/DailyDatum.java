@@ -51,9 +51,9 @@ public class DailyDatum {
     @SerializedName("slp")
     private Double mSlp;
     @SerializedName("snow")
-    private Long mSnow;
+    private String mSnow;
     @SerializedName("snow_depth")
-    private Long mSnowDepth;
+    private String mSnowDepth;
     @SerializedName("sunrise_ts")
     private Long mSunriseTs;
     @SerializedName("sunset_ts")
@@ -258,19 +258,20 @@ public class DailyDatum {
         mSlp = slp;
     }
 
-    public Long getSnow() {
+    public String getSnow() {
         return mSnow;
     }
 
-    public void setSnow(Long snow) {
+    public void setSnow(String snow) {
         mSnow = snow;
     }
 
-    public Long getSnowDepth() {
+
+    public String getSnowDepth() {
         return mSnowDepth;
     }
 
-    public void setSnowDepth(Long snowDepth) {
+    public void setSnowDepth(String snowDepth) {
         mSnowDepth = snowDepth;
     }
 

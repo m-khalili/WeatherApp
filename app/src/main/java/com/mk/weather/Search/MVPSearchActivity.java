@@ -7,9 +7,11 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.jakewharton.rxbinding3.widget.RxTextView;
 import com.mk.weather.CustomView.MyTextView;
 import com.mk.weather.R;
@@ -58,6 +60,7 @@ public class MVPSearchActivity extends AppCompatActivity implements MVPSearchCon
     public void result(List<Datum> search) {
         if (search != null && search.size() > 0) {
             for (int i = 0; i < search.size(); i++) {
+                relative.setVisibility(View.VISIBLE);
                 Log.d(TAG, "result: ");
                 cityName.setTxt(search.get(i).getCityName());
                 cityTemp.setTxt(PublicMethods.roundFloat(search.get(i).getTemp())+ Constants.c);
@@ -82,6 +85,7 @@ public class MVPSearchActivity extends AppCompatActivity implements MVPSearchCon
             setResult(Activity.RESULT_OK , returnIntent);
             finish();
         });
+        relative.setVisibility(View.GONE);
     }
 
 

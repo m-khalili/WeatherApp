@@ -57,7 +57,7 @@
         android:id="@+id/temp"
         app:textFont="medium"
         android:elevation="22dp"
-        android:background="@drawable/my_shape"
+        android:background="@drawable/recycler_bg_shape"
         android:layout_gravity="top|center"
         android:layout_width="wrap_content"
         android:layout_marginTop="86dp"

@@ -3,11 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="12dp"
     android:layout_width="match_parent"
+    android:padding="12dp"
     android:background="#FFFFFF"
     android:layout_height="match_parent"
     tools:context=".Search.MVPSearchActivity">
+
 
 
     <EditText
@@ -15,16 +16,20 @@
         android:layout_marginTop="21dp"
         android:hint="@string/enter_city_name"
         android:paddingStart="12dp"
-        android:textColorHint="@color/white"
+        android:textColorHint="#fff"
         android:background="@drawable/edit_text_shape"
         android:layout_width="match_parent"
         android:layout_height="38dp"/>
 
 
-
     <RelativeLayout
         android:id="@+id/relative"
         android:layout_marginTop="20dp"
+        android:background="@drawable/shape_text_view"
+        android:layout_marginRight="2dp"
+        android:translationZ="6dp"
+        android:translationX="2dp"
+        android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="62dp">
 
@@ -32,6 +37,7 @@
             android:id="@+id/cityName"
             app:textFont="semiBold"
             android:layout_alignParentLeft="true"
+            android:layout_marginStart="12dp"
             app:textColor="#000"
             android:layout_centerVertical="true"
             android:layout_width="wrap_content"
@@ -40,6 +46,7 @@
             android:layout_width="wrap_content"
             android:id="@+id/cityTemp"
             android:layout_alignParentRight="true"
+            android:layout_marginEnd="12dp"
             app:textColor="#000"
             android:layout_centerVertical="true"
             app:textFont="semiBold"
@@ -47,7 +54,6 @@
 
 
     </RelativeLayout>
-
 
 
 </LinearLayout>

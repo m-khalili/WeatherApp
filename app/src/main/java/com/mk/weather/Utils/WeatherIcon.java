@@ -15,6 +15,7 @@ public class WeatherIcon {
                     return R.drawable.daily_forecast_t_storm;
 
                 case 500:
+                case 520:
                     return R.drawable.daily_forecast_light_rain;
 
                 case 501:
@@ -77,6 +78,7 @@ public class WeatherIcon {
                     return R.drawable.icon_gray_bg_t_storm_night;
 
                 case 500:
+                case 520:
                     return R.drawable.icon_gray_bg_light_rain_night;
 
                 case 501:
@@ -264,70 +266,136 @@ public class WeatherIcon {
  }
 
 
-    public static int getIconDaily(int code){
+    public static int getIconDaily(int code) {
+        if (PublicMethods.nightOrDay().equals(Constants.day)) {
+            switch (code){
+                case 200:
+                case 201:
+                case 202:
+                case 230:
+                case 232:
+                case 233:
+                    return R.drawable.daily_forecast_t_storm;
 
-        switch (code){
-            case 200:
-            case 201:
-            case 202:
-            case 230:
-            case 232:
-            case 233:
-                return R.drawable.icon_gray_bg_t_storm_night;
+                case 500:
+                case 520:
+                    return R.drawable.daily_forecast_light_rain;
 
-            case 500:
-                return R.drawable.icon_gray_bg_light_rain_night;
+                case 501:
+                    return R.drawable.daily_forecast_moderate_rain;
 
-            case 501:
-                return R.drawable.icon_gray_bg_moderate_rain_night;
+                case 502:
+                    return R.drawable.daily_forecast_heavy_rain;
 
-            case 502:
-                return R.drawable.icon_gray_bg_heavy_rain_night;
+                case 511:
+                    return R.drawable.daily_forecast_ice_raim;
 
-            case 511:
-                return R.drawable.icon_gray_bg_ice_rain_night;
+                case 600:
+                    return R.drawable.daily_forecast_light_snow;
 
-            case 600:
-                return R.drawable.icon_gray_bg_light_snow_night;
+                case 601:
+                case 621:
+                    return R.drawable.daily_forecast_moderate_snow;
 
-            case 601:
-            case 621:
-                return R.drawable.icon_gray_bg_moderate_snow_night;
+                case 602:
+                case 622:
+                    return R.drawable.daily_forecast_heavy_snow;
 
-            case 602:
-            case 622:
-                return R.drawable.icon_gray_bg_heavy_snow_night;
+                case 610:
+                    return R.drawable.daily_forecast_rain_snow;
 
-            case 610:
-                return R.drawable.icon_gray_bg_rain_snow_night;
+                case 700:
+                case 711:
+                case 721:
+                case 731:
+                case 741:
+                case 751:
+                    return R.drawable.daily_forecast_foggy;
 
-            case 700:
-            case 711:
-            case 721:
-            case 731:
-            case 741:
-            case 751:
-                return R.drawable.icon_gray_bg_fog_night;
+                case 800:
+                    return R.drawable.ic_clear_day;
+                case 801:
+                case 802:
+                    return R.drawable.daily_forecast_cloudy;
+                case 803:
+                case 804:
+                    return R.drawable.daily_forecast_overcast;
+                case 300:
+                case 301:
+                case 302:
+                case 611:
+                case 612:
+                case 623:
+                case 900:
+                    return R.drawable.daily_forecast_pm_dirt;
 
-            case 800:
-                return R.drawable.ic_clear_day;
-            case 801:
-            case 802:
-                return R.drawable.icon_gray_bg_cloudy_night;
-            case 803:
-            case 804:
-                return R.drawable.icon_gray_bg_overcast_night;
-            case 300:
-            case 301:
-            case 302:
-            case 611:
-            case 612:
-            case 623:
-            case 900:
-                return R.drawable.icon_gray_bg_pm_dirt_night;
+            }
+        }else if (PublicMethods.nightOrDay().equals(Constants.night)) {
+            switch (code) {
+                case 200:
+                case 201:
+                case 202:
+                case 230:
+                case 232:
+                case 233:
+                    return R.drawable.icon_gray_bg_t_storm_night;
 
+                case 500:
+                case 520:
+                    return R.drawable.icon_gray_bg_light_rain_night;
+
+                case 501:
+                    return R.drawable.icon_gray_bg_moderate_rain_night;
+
+                case 502:
+                    return R.drawable.icon_gray_bg_heavy_rain_night;
+
+                case 511:
+                    return R.drawable.icon_gray_bg_ice_rain_night;
+
+                case 600:
+                    return R.drawable.icon_gray_bg_light_snow_night;
+
+                case 601:
+                case 621:
+                    return R.drawable.icon_gray_bg_moderate_snow_night;
+
+                case 602:
+                case 622:
+                    return R.drawable.icon_gray_bg_heavy_snow_night;
+
+                case 610:
+                    return R.drawable.icon_gray_bg_rain_snow_night;
+
+                case 700:
+                case 711:
+                case 721:
+                case 731:
+                case 741:
+                case 751:
+                    return R.drawable.icon_gray_bg_fog_night;
+
+                case 800:
+                    return R.drawable.icon_gray_bg_sunny_night;
+                case 801:
+                case 802:
+                    return R.drawable.icon_gray_bg_cloudy_night;
+                case 803:
+                case 804:
+                    return R.drawable.icon_gray_bg_overcast_night;
+                case 300:
+                case 301:
+                case 302:
+                case 611:
+                case 612:
+                case 623:
+                case 900:
+                    return R.drawable.icon_gray_bg_pm_dirt_night;
+
+            }
         }
-        return 0;
+            return 0;
+
     }
 
 }
